@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Conservation in Rajasthan</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #034f84;
+            --accent-color: #92c7d3;
+            --text-color: #333;
+            --light-color: #f7f9fc;
+            --dark-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/photo1.jpeg") center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--text-color);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        section#projects {
+            padding: 80px 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            max-width: 100%;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .section-title h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* Popup styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 15px;  /* Add padding for mobile */
+            overflow-y: auto;  /* Allow scrolling if needed */
+        }
+        
+        .popup-overlay.active {
+            display: flex; /* Show when active */
+        }
+
+        .popup-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;  /* Limit height on all devices */
+            position: relative;
+            margin: auto;  /* Center horizontally */
+            overflow-y: auto;  /* Allow scrolling inside popup */
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
+            z-index: 10;  /* Ensure it's always clickable */
+        }
+
+        .popup-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-right: 40px;  /* Make room for close button */
+        }
+
+        .popup-img {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;  /* Center the image */
+        }
+
+        .popup-img img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .popup-body {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Mobile-specific fixes */
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 15px;
+                margin: 10px;
+                width: calc(100% - 20px);  /* Account for margins */
+            }
+            
+            .popup-title {
+                font-size: 1.5rem;
+            }
+            
+            .popup-overlay {
+                align-items: flex-start;  /* Align to top on mobile for better scrolling */
+                padding: 10px;
+            }
+            
+            /* Make sure the popup content doesn't exceed viewport */
+            .popup-overlay.active {
+                overflow-y: auto;
+            }
+        }
+
+        /* Fix to ensure content doesn't overflow on very small screens */
+        @media (max-width: 480px) {
+            .popup-content {
+                margin: 5px;
+                padding: 10px;
+                width: calc(100% - 10px);
+            }
+        }
+
+        /* Slider container styles */
+        .projects-slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Slider styles */
+        .projects-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            animation: slideAnimation 30s linear infinite;
+        }
+
+        /* When hovering over the slider, pause the animation */
+        .projects-slider-container:hover .projects-slider {
+            animation-play-state: paused;
+        }
+
+        /* Project card styles for slider */
+        .projects-slider .project-card {
+            flex: 0 0 300px;
+            margin-right: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation keyframes for continuous sliding */
+        @keyframes slideAnimation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-330px * 3)); /* Adjust based on card width + margin */
+            }
+        }
+
+        /* Slider navigation buttons */
+        .slider-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slider-nav button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .gallery {
+            background-color: white;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            max-width: 100%;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .stats {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* Download Button Styling */
+        .download-resume {
+            margin-top: 25px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to left, #3494e6, #ec6ead);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        } */
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:hover:before {
+            opacity: 1;
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+        }
+
+        /* Media Query for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .download-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .download-resume {
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+
+
+/* Main container styling */
+        .contact {
+            position: relative;
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('images/water-bg.jpg') center/cover no-repeat fixed;
+            overflow: hidden;
+        }
+
+        /* Section title consistent with your theme */
+        .contact .section-title h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Contact card styles */
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin: 40px auto;
+            max-width: 1200px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Contact info side */
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px;
+            position: relative;
+        }
+
+        .info-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-badge {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .info-details {
+            margin-top: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            flex: 0 0 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-detail:hover .contact-icon {
+            transform: scale(1.1);
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .contact-detail h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .contact-detail a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-detail a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Form container */
+        .contact-form-container {
+            flex: 1.2;
+            min-width: 300px;
+            padding: 40px;
+            background: white;
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Animated form */
+        .animated-form .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 0;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .animated-form input,
+        .animated-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            background: #f9f9f9;
+            border-radius: 5px 5px 0 0;
+            font-size: 1rem;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .animated-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .animated-form input:focus,
+        .animated-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .animated-form .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.4s;
+        }
+
+        .animated-form input:focus ~ .focus-border,
+        .animated-form textarea:focus ~ .focus-border {
+            width: 100%;
+        }
+
+        /* Submit button */
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.4);
+        }
+
+        .btn-submit .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-submit:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        /* Optional background elements */
+        .contact-backdrop {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: url('images/water-drop.png') no-repeat center/contain;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-info, 
+            .contact-form-container {
+                width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 60px 20px;
+            }
+            
+            .contact-card {
+                margin: 30px 10px;
+            }
+            
+            .contact-info,
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">Hydrogeo<span>Tourism</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="Article">Article</a></li>
+                <li><a href="#Gallery">Gallery</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
+        <h1>Hydrogeo Tourism</h1>
+        <p>An idea to Conserve traditional water bodies & water culture of India, may lead to first UNESCO Global Geopark in India</p>
+        <!-- <a href="#contact" class="btn">Join Our Mission</a> -->
+    </header>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Article</h2>
+                <p>Explore some of the major Articles</p>
+            </div>
+            
+            <!-- Slider container -->
+            <div class="projects-slider-container">
+                <!-- Main slider with duplicate cards for infinite loop effect -->
+                <div class="projects-slider">
+                    <!-- Original cards -->
+                    <div class="project-card" data-article-id="1">
+                        <div class="project-img">
+                            <img src="images/p.jpeg" alt="UNESCO Geo Park">
+                        </div>
+                        <div class="project-info">
+                            <h3>UNESCO Geo Park</h3>
+                            <p>India has rich geological heritage but lacks any UNESCO Global Geoparks, while China has 41.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-article-id="2">
+                        <div class="project-img">
+                            <img src="images/p1.jpeg" alt="Threat to Farming and Trade">
+                        </div>
+                        <div class="project-info">
+                            <h3>Threat to Farming and Trade</h3>
+                            <p>Expanding desertification, largely driven by human actions, is severely impacting agriculture and trade worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-article-id="3">
+                        <div class="project-img">
+                            <img src="images/p2.jpeg" alt="Restoring Water Legacy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Restoring Water Legacy</h3>
+                            <p>To tackle today's water crisis, India must restore its traditional water systems and cultural practices.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Duplicated cards for seamless looping -->
+                    <div class="project-card" data-article-id="1">
+                        <div class="project-img">
+                            <img src="images/JODHPUR.jpeg" alt="UNESCO Geo Park">
+                        </div>
+                        <div class="project-info">
+                            <h3>The Jodhpur Heritage</h3>
+                            <p>The article discusses the potential of Jodhpur becoming India’s first UNESCO Global Heritage Park, showcasing its rich cultural and historical landmarks.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-article-id="2">
+                        <div class="project-img">
+                            <img src="images/gangalav.jpeg" alt="Threat to Farming and Trade">
+                        </div>
+                        <div class="project-info">
+                            <h3>Gangalav Lake Restoration</h3>
+                            <p>The article highlights the restoration of Gangalav Lake, which had been dried up for 30 years, and its transformation into a picnic spot for the public</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-article-id="3">
+                        <div class="project-img">
+                            <img src="images/p2.jpeg" alt="Restoring Water Legacy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Soil Conservation</h3>
+                            <p>The article discusses the role of soil conservation in combating groundwater depletion and land degradation through sustainable farming practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Optional slider navigation -->
+            <div class="slider-nav">
+                <!-- <button id="pause-slider">Pause</button>
+                <button id="play-slider">Play</button> -->
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <h2 class="popup-title"></h2>
+            <div class="popup-img">
+                <!-- Image will be inserted here by JavaScript -->
+            </div>
+            <div class="popup-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Water Conservation Gallery</h2>
+                <p>Visual documentation of our water conservation efforts across Rajasthan.</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="images/anasagar.jpeg" alt="Water conservation in Rajasthan">
+                    <div class="overlay">
+                        <h3>Ana sagar</h3>
+                        <p>Ajmer, Rajasthan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/toorjika.webp" alt="Community water management">
+                    <div class="overlay">
+                        <h3>Toorji ka Jhalra</h3>
+                        <p>Jodhpur, Rajasthan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/bagar.jpeg" alt="Ancient stepwell">
+                    <div class="overlay">
+                        <h3>WaterBody</h3>
+                        <p>Bagar, Rajasthan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/waterB1.jpeg" alt="Rainwater harvesting structure">
+                    <div class="overlay">
+                        <h3>Bhramputra River</h3>
+                        <p>Assam</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/hardhani.jpeg" alt="Water awareness campaign">
+                    <div class="overlay">
+                        <h3>Pond With Stone</h3>
+                        <p>Hardani, Rajasthan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Gulabsagar.jpg" alt="Traditional water management">
+                    <div class="overlay">
+                        <h3>Traditional Water Management</h3>
+                        <p>Bikaner, Rajasthan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Header Replaced with Person Profile -->
+<section class="person-profile" id="home">
+    <div class="container">
+        <div class="">
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="images/picture2.jpeg" alt="Person Name">
+            </div>
+            <div class="about-text">
+                <h3>Dr. Shiv Singh Rathore</h3>
+                <p>o M.Sc. (Gold Medalist), Ph.D., D.Sc.</p>
+                <p>o Honb'le Governor and Chancellor's Nominee in Rabindranath Tagore University, Hojai, Assam</p>
+                <p>o EX CHAIRMAN (o) & Member</p>
+                <p>o Rajasthan Public Service Commission</p>
+                <p>o Ajmer, Rajasthan</p>
+                <div class="download-resume">
+                    <a href="documents/SSRCv.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Interested in collaborating or learning more about my water conservation work? Reach out!</p>
+        </div>
+        
+        <!-- Contact card container -->
+        <div class="contact-card">
+            <div class="contact-content">
+                <!-- Left side - Contact info with enhanced styling -->
+                <div class="contact-info">
+                    <div class="info-header">
+                        <div class="profile-badge">
+                            <img src="images/picture1.jpeg" alt="Dr. Shiv Singh Rathore">
+                        </div>
+                    </div>
+                    
+                    <div class="info-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="contact-icon-map">📍</i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Jodhpur, Rajasthan, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="contact-icon-email">📧</i>
+                            </div>
+                            <div>
+                                <h4>Gmail</h4>
+                                <p><a href="mailto:shivbjs@gmail.com">shivbjs@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="contact-icon-phone">📞</i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+919828119000">+91 9828119000</a></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Social media links (optional) -->
+                        <div class="social-links">
+                            <a href="#" class="social-icon">
+                                <i class="social-icon-linkedin">LinkedIn</i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="social-icon-twitter">Twitter</i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="social-icon-facebook">Facebook</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side - Contact form with improved styling -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Send a Message</h3>
+                        <p>I'll get back to you as soon as possible</p>
+                    </div>
+                    
+                    <form id="contact-form" class="animated-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
+                                <span class="focus-border"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder="Your Email">
+                                <span class="focus-border"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder="Subject">
+                            <span class="focus-border"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                            <span class="focus-border"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">
+                            <span>Send Message</span>
+                            <i class="btn-icon">→</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Optional - Map or background image -->
+        <div class="contact-backdrop">
+            <div class="map-overlay"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Hydrogeo Tourism</h3>
+                <p>An idea to Conserve traditional water bodies & water culture of India, may lead to first UNESCO Global Geopark in India</p>
+                <div class="social-links">
+                    <a href="#"><i>FB</i></a>
+                    <a href="#"><i>TW</i></a>
+                    <a href="#"><i>IG</i></a>
+                    <a href="#"><i>LI</i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="Article">Article</a></li>
+                    <li><a href="#Gallery">Gallery</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Water Conservation Tips</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Shiv singh rathore. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animated counter for stats
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target > 100 ? Math.ceil(target / 100) : 1;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 20);
+        };
+        // Article content database (you can expand this with your real content)
+        // Enhanced popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Article content database with complete content
+            const articleContent = {
+                1: {
+                    title: "UNESCO Geo Park",
+                    image: "images/p.jpeg",
+                    altText: "UNESCO Geo Park",
+                    content: `<p>India has a rich geological heritage but surprisingly lacks any UNESCO Global Geoparks, while China boasts 41 such sites. The concept of Hydrogeo Tourism aims to blend water conservation with geological tourism, potentially creating India's first UNESCO Global Geopark.</p>
+                            <p>UNESCO Global Geoparks are unified geographical areas where sites and landscapes of international geological significance are managed with a holistic concept of protection, education, and sustainable development. By focusing on traditional water structures and the cultural practices surrounding them, this initiative seeks to preserve both natural and cultural heritage.</p>
+                            <p>The project would not only conserve precious water resources but also foster educational opportunities, scientific research, and sustainable economic development through tourism.</p>`
+                },
+                2: {
+                    title: "Threat to Farming and Trade",
+                    image: "images/p1.jpeg",
+                    altText: "Threat to Farming and Trade",
+                    content: `<p>Expanding desertification, largely driven by human actions, is severely impacting agriculture and trade worldwide. In regions like Rajasthan, once-fertile lands are increasingly threatened by advancing desert conditions.</p>
+                            <p>The consequences of this environmental degradation are far-reaching:</p>
+                            <ul>
+                                <li>Reduced agricultural productivity and food security</li>
+                                <li>Disruption of traditional farming practices</li>
+                                <li>Economic losses for local communities</li>
+                                <li>Increased migration from affected areas</li>
+                                <li>Heightened competition for dwindling resources</li>
+                            </ul>
+                            <p>By preserving and restoring traditional water management systems, we can combat desertification, protect agricultural lands, and maintain vital trade routes and economic activities that depend on stable water supplies.</p>`
+                },
+                3: {
+                    title: "Restoring Water Legacy",
+                    image: "images/p2.jpeg",
+                    altText: "Restoring Water Legacy",
+                    content: `<p>To tackle today's water crisis, India must restore its traditional water systems and cultural practices. For centuries, communities across India developed sophisticated methods for harvesting, storing, and managing water resources.</p>
+                            <p>These traditional systems include:</p>
+                            <ul>
+                                <li>Step wells (baolis) that provide access to groundwater</li>
+                                <li>Tanks and reservoirs (talabs) for rainwater harvesting</li>
+                                <li>Johads and other community-managed water bodies</li>
+                                <li>Kunds and other household water collection structures</li>
+                            </ul>
+                            <p>These systems were not merely physical structures but were integrated into cultural practices, religious rituals, and community governance. By reviving this water legacy, we can address modern water scarcity while preserving cultural heritage and promoting sustainable development.</p>
+                            <p>The Hydrogeo Tourism initiative seeks to document, restore, and celebrate these traditional water systems, creating a network of living heritage sites that can inspire modern water conservation efforts.</p>`
+                },
+                4: {
+                    title: "The Jodhpur Heritage",
+                    image: "images/JODHPUR.jpeg",
+                    altText: "Jodhpur Heritage Sites",
+                    content: `<p>Jodhpur, the second largest city in Rajasthan, has the potential to become India's first UNESCO Global Heritage Park, showcasing its rich cultural and historical landmarks that span centuries of royal heritage.</p>
+                            <p>The Blue City is home to numerous historical treasures including:</p>
+                            <ul>
+                                <li>Mehrangarh Fort, one of the largest forts in India with panoramic views of the blue-hued cityscape</li>
+                                <li>Umaid Bhawan Palace, part-royal residence, part-museum and luxury hotel</li>
+                                <li>Ancient step wells and water systems that showcase traditional water conservation methods</li>
+                                <li>Centuries-old havelis and temples displaying intricate Rajasthani architecture</li>
+                                <li>Traditional arts and crafts that have been preserved through generations</li>
+                            </ul>
+                            <p>By pursuing UNESCO Global Heritage Park status, Jodhpur aims to preserve these historical treasures while promoting sustainable tourism and creating economic opportunities for local communities. The initiative would help protect the city's unique architectural heritage and traditional knowledge systems.</p>
+                            <p>The proposed heritage park would create a unified framework for conservation efforts across the region, linking historical sites with traditional practices and fostering greater appreciation for Rajasthan's cultural legacy on the global stage.</p>`
+                },
+                5: {
+                    title: "Gangalav Lake Restoration",
+                    image: "images/gangalav.jpeg",
+                    altText: "Restored Gangalav Lake",
+                    content: `<p>The remarkable restoration of Gangalav Lake stands as a testament to successful community-driven environmental rehabilitation. After remaining dried up for over 30 years, this once-forgotten water body has been transformed into a vibrant picnic spot and ecological haven for the public.</p>
+                            <p>The restoration project included:</p>
+                            <ul>
+                                <li>Extensive desilting operations to restore the lake's water-holding capacity</li>
+                                <li>Reinforcement of embankments and catchment areas to prevent future degradation</li>
+                                <li>Introduction of native aquatic plants to restore the ecosystem</li>
+                                <li>Creation of designated picnic areas and walking paths for public enjoyment</li>
+                                <li>Installation of water quality monitoring systems to ensure sustainability</li>
+                            </ul>
+                            <p>This revival has not only created a recreational space for local residents but has also significantly improved the groundwater levels in surrounding areas. The lake now serves as a critical water reservoir during dry months and provides habitat for numerous bird species that had previously abandoned the region.</p>
+                            <p>The Gangalav Lake restoration project demonstrates how traditional water bodies can be revitalized through collaborative efforts between government agencies, environmental experts, and local communities. It offers a replicable model for lake restoration throughout arid regions facing similar water scarcity challenges.</p>`
+                },
+                6: {
+                    title: "Soil Conservation",
+                    image: "images/p2.jpeg",
+                    altText: "Soil Conservation Techniques",
+                    content: `<p>Soil conservation plays a crucial role in combating groundwater depletion and land degradation through sustainable farming practices. As topsoil erosion accelerates due to climate change and intensive agriculture, implementing effective soil conservation measures has become increasingly urgent.</p>
+                            <p>Key soil conservation techniques being promoted include:</p>
+                            <ul>
+                                <li>Contour farming that follows the natural contours of the land to minimize runoff</li>
+                                <li>Cover cropping to protect soil during off-seasons and add organic matter</li>
+                                <li>Reduced tillage practices that maintain soil structure and beneficial microorganisms</li>
+                                <li>Agroforestry systems that integrate trees with crops to prevent erosion</li>
+                                <li>Creation of vegetative barriers and windbreaks to protect agricultural lands</li>
+                            </ul>
+                            <p>These practices not only prevent soil erosion but also significantly improve water infiltration, allowing rainfall to replenish groundwater aquifers rather than being lost as surface runoff. Improved soil health leads to greater water retention capacity, reducing irrigation needs even during dry periods.</p>
+                            <p>By adopting these soil conservation measures, farmers have reported up to 30% reduction in water usage while maintaining or improving crop yields. The enhanced soil organic matter also contributes to carbon sequestration, making these practices valuable tools in both climate adaptation and mitigation efforts.</p>
+                            <p>Training programs and demonstration farms are being established across the region to help farmers transition to these sustainable practices, creating a movement toward regenerative agriculture that benefits both the environment and agricultural productivity.</p>`
+                }
+            };
+
+            // Get DOM elements
+            const slider = document.querySelector('.projects-slider');
+            const pauseButton = document.getElementById('pause-slider');
+            const playButton = document.getElementById('play-slider');
+
+            const projectCards = document.querySelectorAll('.project-card');
+            const popupOverlay = document.querySelector('.popup-overlay');
+            const popupContent = document.querySelector('.popup-content');
+            const popupClose = document.querySelector('.popup-close');
+            const popupTitle = document.querySelector('.popup-title');
+            const popupImgContainer = document.querySelector('.popup-img');
+            const popupBody = document.querySelector('.popup-body');
+
+            // Add click event to project cards
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const articleId = card.getAttribute('data-article-id');
+                    openPopup(articleId);
+                });
+            });
+
+            // Pause and play controls for the slider
+            pauseButton.addEventListener('click', () => {
+                slider.style.animationPlayState = 'paused';
+            });
+
+            playButton.addEventListener('click', () => {
+                slider.style.animationPlayState = 'running';
+            });
+
+            // Clone cards function for infinite loop (alternative to HTML duplication)
+            function setupInfiniteSlider() {
+                // Get all original cards
+                const originalCards = document.querySelectorAll('.projects-slider .project-card');
+        
+                // Clone them and append to slider for seamless looping
+                originalCards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    slider.appendChild(clone);
+            
+                    // Make sure the cloned cards have click event too
+                    clone.addEventListener('click', () => {
+                        const articleId = clone.getAttribute('data-article-id');
+                        openPopup(articleId);
+                    });
+                });
+            }
+
+            // Initialize infinite slider (if you want to do it via JS instead of HTML)
+            // Uncomment this if you remove the duplicated cards from HTML
+            // setupInfiniteSlider();
+
+
+            // Open popup function with improved positioning
+            function openPopup(articleId) {
+                const article = articleContent[articleId];
+                if (article) {
+                    // Set popup content
+                    popupTitle.textContent = article.title;
+                    
+                    // Clear and set image with loading state
+                    popupImgContainer.innerHTML = `<img src="${article.image}" alt="${article.altText}">`;
+                    
+                    // Set content
+                    popupBody.innerHTML = article.content;
+                    
+                    // Show popup
+                    popupOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent body scrolling
+                    
+                    // Center the popup properly
+                    centerPopup();
+                    
+                    // Log for debugging
+                    console.log(`Opened popup for article ${articleId}`);
+                } else {
+                    console.error('Article content not found for ID:', articleId);
+                }
+            }
+
+            // Function to center the popup on all devices
+            function centerPopup() {
+                // If we're on mobile, scroll the popup to the top for better visibility
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        popupOverlay.scrollTop = 0;
+                    }, 10);
+                }
+            }
+
+            // Make slider restart when animation completes
+            slider.addEventListener('animationend', () => {
+                slider.style.animation = 'none';
+                // Trigger reflow
+                void slider.offsetWidth;
+                slider.style.animation = 'slideAnimation 30s linear infinite';
+            });
+
+            // Close popup when close button is clicked
+            popupClose.addEventListener('click', closePopup);
+
+            // Close popup when clicking outside content
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+
+            // Close popup with escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                    closePopup();
+                }
+            });
+
+            // Close popup function
+            function closePopup() {
+                popupOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable body scrolling
+                console.log('Popup closed');
+            }
+
+            // Handle window resize to maintain popup positioning
+            window.addEventListener('resize', () => {
+                if (popupOverlay.classList.contains('active')) {
+                    centerPopup();
+                }
+            });
+        });
+        // Contact form animation and validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                // Form submission handling
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple validation
+                    if (!name || !email || !subject || !message) {
+                        showFormMessage('Please fill out all fields', 'error');
+                        return;
+                    }
+                    
+                    // Email validation regex
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showFormMessage('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    // Here you would normally send the form data to your server
+                    // For now, let's just simulate a successful submission
+                    
+                    // Show loading state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<span>Sending...</span>';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate server request
+                    setTimeout(() => {
+                        // Show success message
+                        showFormMessage('Your message has been sent successfully!', 'success');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+                
+                // Input focus animations for labels
+                const inputs = contactForm.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    // Check if input already has value on page load
+                    if (input.value) {
+                        input.classList.add('has-value');
+                    }
+                    
+                    // Handle input events
+                    input.addEventListener('input', function() {
+                        if (this.value) {
+                            this.classList.add('has-value');
+                        } else {
+                            this.classList.remove('has-value');
+                        }
+                    });
+                });
+            }
+            
+            // Function to show form messages
+            function showFormMessage(message, type) {
+                // Remove any existing message
+                const existingMessage = document.querySelector('.form-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                // Create message element
+                const messageElement = document.createElement('div');
+                messageElement.className = `form-message ${type}`;
+                messageElement.textContent = message;
+                
+                // Add to form
+                const formHeader = document.querySelector('.form-header');
+                formHeader.appendChild(messageElement);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    messageElement.classList.add('fade-out');
+                    setTimeout(() => {
+                        messageElement.remove();
+                    }, 300);
+                }, 5000);
+            }
+            
+            // Optional - Animate contact details on scroll
+            const animateOnScroll = () => {
+                const contactDetails = document.querySelectorAll('.contact-detail');
+                
+                contactDetails.forEach((detail, index) => {
+                    // Add staggered animation delay
+                    setTimeout(() => {
+                        detail.classList.add('animate-in');
+                    }, index * 150);
+                });
+            };
+            
+            // Check if IntersectionObserver is supported
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateOnScroll();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                const contactSection = document.querySelector('.contact-info');
+                if (contactSection) {
+                    observer.observe(contactSection);
+                }
+            } else {
+                // Fallback for older browsers
+                window.addEventListener('scroll', () => {
+                    const contactSection = document.querySelector('.contact-info');
+                    if (contactSection && window.scrollY + window.innerHeight > contactSection.offsetTop) {
+                        animateOnScroll();
+                        window.removeEventListener('scroll', this);
+                    }
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+        
