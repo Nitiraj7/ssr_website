@@ -335,6 +335,8 @@
             }
         }
 
+
+
         /* Slider container styles */
         .projects-slider-container {
             width: 100%;
@@ -392,6 +394,175 @@
         .slider-nav button:hover {
             background-color: var(--secondary-color);
         }
+
+        /* Research paper Project Slider Styles */
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .research-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .research-heading h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .research-heading p {
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+        
+        /* Research Papers Carousel */
+        .papers-carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .papers-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+        
+        .paper-item {
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 0 0 calc(33.333% - 20px);
+        }
+        
+        .paper-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .paper-thumbnail {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .paper-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .paper-item:hover .paper-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .paper-details {
+            padding: 20px;
+        }
+        
+        .paper-details h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .paper-details p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+        
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .carousel-controls button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel-controls button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* PDF Viewer Modal */
+        .pdf-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .pdf-modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 900px;
+            height: 90%;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pdf-modal-close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .pdf-modal-title {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pdf-modal-body {
+            flex: 1;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        .pdf-display-area {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .pdf-display-area iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+
 
         .gallery {
             background-color: white;
@@ -1010,6 +1181,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="Article">Article</a></li>
                 <li><a href="#Gallery">Gallery</a></li>
+                <li><a href="#Gallery">Research Paper</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Contact">Contact</a></li>
             </ul>
@@ -1106,7 +1278,6 @@
             </div>
         </div>
     </section>
-    
 
     <div class="popup-overlay">
         <div class="popup-content">
@@ -1120,6 +1291,103 @@
             </div>
         </div>
     </div>
+
+
+<!-- FOR REASEARCH PAPER -->
+
+    <section id="research-papers" class="research-papers-section">
+            <div class="research-container">
+                <div class="research-heading">
+                    <h2>Research Papers</h2>
+                    <p>Explore some of the major Research papers</p>
+                </div>
+                
+                <!-- Carousel container -->
+                <div class="papers-carousel-wrapper">
+                    <!-- Main carousel with papers -->
+                    <div class="papers-carousel">
+                        <!-- Research paper items -->
+                        <div class="paper-item" data-paper-id="1" data-pdf-source="documents/Step Wells.pdf" data-paper-title="Steps Wells">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Step Wells">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>UNESCO Geo Park</h3>
+                                <p>India has rich geological heritage but lacks any UNESCO Global Geoparks, while China has 41.</p>
+                            </div> -->
+                        </div>
+                        <div class="paper-item" data-paper-id="2" data-pdf-source="documents/Ajmer Geopark.pdf" data-paper-title="Ajmer Geopark">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Ajmer Geopark">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>Threat to Farming and Trade</h3>
+                                <p>Expanding desertification, largely driven by human actions, is severely impacting agriculture and trade worldwide.</p>
+                            </div> -->
+                        </div>
+                        <div class="paper-item" data-paper-id="3" data-pdf-source="documents/Geoheritage Full_FGF.pdf" data-paper-title="Geoheritage">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Geoheritage">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>Restoring Water Legacy</h3>
+                                <p>To tackle today's water crisis, India must restore its traditional water systems and cultural practices.</p>
+                            </div> -->
+                        </div>
+                        
+                        <!-- Additional papers -->
+                        <div class="paper-item" data-paper-id="4" data-pdf-source="documents/Jaipur Geopark.pdf" data-paper-title="Jaipur Geopark">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Jaipur Geopark">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>The Jodhpur Heritage</h3>
+                                <p>The article discusses the potential of Jodhpur becoming India's first UNESCO Global Heritage Park, showcasing its rich cultural and historical landmarks.</p>
+                            </div> -->
+                        </div>
+                        <div class="paper-item" data-paper-id="5" data-pdf-source="documents/Jodhpur Geopark.pdf" data-paper-title="Jodhpur Geopark">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Jodhpur Geopark">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>Gangalav Lake Restoration</h3>
+                                <p>The article highlights the restoration of Gangalav Lake, which had been dried up for 30 years, and its transformation into a picnic spot for the public</p>
+                            </div> -->
+                        </div>
+                        <div class="paper-item" data-paper-id="6" data-pdf-source="documents/Landslide.pdf" data-paper-title="Landslide">
+                            <div class="paper-thumbnail">
+                                <img src="/api/placeholder/300/180" alt="Landslide">
+                            </div>
+                            <!-- <div class="paper-details">
+                                <h3>Soil Conservation</h3>
+                                <p>The article discusses the role of soil conservation in combating groundwater depletion and land degradation through sustainable farming practices.</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel controls -->
+                <div class="carousel-controls">
+                    <button id="pause-carousel">Pause</button>
+                    <button id="play-carousel">Play</button>
+                </div>
+            </div>
+        </section>
+    
+    <!-- Modal for PDF Viewer -->
+        <div class="pdf-modal-overlay" id="pdfViewerModal">
+            <div class="pdf-modal-content">
+                <button class="pdf-modal-close">&times;</button>
+                <h2 class="pdf-modal-title"></h2>
+                <div class="pdf-modal-body">
+                    <div class="pdf-display-area">
+                        <!-- PDF will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
@@ -1190,7 +1458,7 @@
                 <p>o Rajasthan Public Service Commission</p>
                 <p>o Ajmer, Rajasthan</p>
                 <div class="download-resume">
-                    <a href="documents/SSRCv.pdf" download class="download-btn">
+                    <a href="documents/Dr shiv.pdf" download class="download-btn">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                     <a href="documents/ssrdoc.pdf" download class="download-btn">
@@ -1592,7 +1860,9 @@
             });
 
             // Close popup when close button is clicked
-            popupClose.addEventListener('click', closePopup);
+            popupClose.addEventListener('click', function () {
+                closePopup();
+            });
 
             // Close popup when clicking outside content
             popupOverlay.addEventListener('click', (e) => {
@@ -1757,6 +2027,110 @@
             }
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carousel functionality
+            const carousel = document.querySelector('.papers-carousel');
+            const paperItems = document.querySelectorAll('.paper-item');
+            const pauseBtn = document.getElementById('pause-carousel');
+            const playBtn = document.getElementById('play-carousel');
+            
+            // PDF modal elements
+            const pdfModal = document.getElementById('pdfViewerModal');
+            const modalTitle = document.querySelector('.pdf-modal-title');
+            const pdfDisplayArea = document.querySelector('.pdf-display-area');
+            const closeModal = document.querySelector('.pdf-modal-close');
+            
+            let carouselInterval;
+            let slidePosition = 0;
+            const itemWidth = paperItems[0].offsetWidth + 20; // item width + gap
+            
+            // Start automatic carousel
+            function startCarousel() {
+                carouselInterval = setInterval(() => {
+                    slidePosition -= itemWidth;
+                    
+                    // Reset position for continuous scrolling effect
+                    if (Math.abs(slidePosition) >= (paperItems.length - 3) * itemWidth) {
+                        slidePosition = 0;
+                    }
+                    
+                    carousel.style.transform = `translateX(${slidePosition}px)`;
+                }, 3000);
+            }
+            
+            // Initialize carousel
+            startCarousel();
+            
+            // Pause carousel
+            pauseBtn.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+            });
+            
+            // Play carousel
+            playBtn.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+                startCarousel();
+            });
+            
+            // Handle paper item click to show PDF
+            paperItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pdfPath = this.getAttribute('data-pdf-source');
+                    const title = this.getAttribute('data-paper-title');
+                    
+                    if (pdfPath) {
+                        // Set modal title
+                        modalTitle.textContent = title;
+                        
+                        // Create iframe for PDF viewer
+                        pdfDisplayArea.innerHTML = `<iframe src="${pdfPath}" title="${title}" allowfullscreen></iframe>`;
+                        
+                        // Show modal
+                        pdfModal.style.display = 'flex';
+                        
+                        // Pause carousel when modal is open
+                        clearInterval(carouselInterval);
+                    }
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                pdfModal.style.display = 'none';
+                
+                // Restart carousel
+                clearInterval(carouselInterval);
+                startCarousel();
+            });
+            
+            // Close modal when clicking outside
+            pdfModal.addEventListener('click', function(e) {
+                if (e.target === pdfModal) {
+                    pdfModal.style.display = 'none';
+                    
+                    // Restart carousel
+                    clearInterval(carouselInterval);
+                    startCarousel();
+                }
+            });
+            
+            // Handle window resize to adjust carousel
+            window.addEventListener('resize', () => {
+                // Get new item width
+                const newItemWidth = paperItems[0].offsetWidth + 20;
+                
+                // Calculate new position proportionally
+                const currentPosition = Math.abs(slidePosition);
+                const currentIndex = Math.round(currentPosition / itemWidth);
+                slidePosition = -currentIndex * newItemWidth;
+                
+                // Update item width reference
+                itemWidth = newItemWidth;
+                
+                // Update carousel position
+                carousel.style.transform = `translateX(${slidePosition}px)`;
+            });
+        });
     </script>
 </body>
 </html>
