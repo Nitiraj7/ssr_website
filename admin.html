@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Admin Panel - Hydrogeo Tourism</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Form -->
+        <div class="login-container" id="loginContainer">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Admin Login</h2>
+                    <p>Hydrogeo Tourism Admin Panel</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="username" placeholder="Username" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Admin Panel</h3>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-item" data-section="articles">
+                        <i class="fas fa-newspaper"></i> Articles
+                    </a>
+                    <a href="#" class="nav-item" data-section="gallery">
+                        <i class="fas fa-images"></i> Gallery
+                    </a>
+                    <a href="#" class="nav-item" data-section="research">
+                        <i class="fas fa-file-pdf"></i> Research Papers
+                    </a>
+                    <a href="#" class="nav-item" data-section="about">
+                        <i class="fas fa-user"></i> About Section
+                    </a>
+                    <a href="#" class="nav-item" data-section="contact">
+                        <i class="fas fa-envelope"></i> Contact Info
+                    </a>
+                    <a href="#" class="nav-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="content-header">
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" style="display: none;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="sectionTitle">Dashboard</h1>
+                    <button class="btn btn-primary" id="addNewBtn" onclick="admin.openAddModal()" style="display: none;">
+                        <i class="fas fa-plus"></i> Add New
+                    </button>
+                </div>
+
+                <div class="content-body">
+                    <!-- Dashboard Section -->
+                    <div class="section-content active" id="dashboard-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-newspaper"></i>
+                                <div class="stat-info">
+                                    <h3 id="articlesCount">0</h3>
+                                    <p>Articles</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-images"></i>
+                                <div class="stat-info">
+                                    <h3 id="galleryCount">0</h3>
+                                    <p>Gallery Images</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="stat-info">
+                                    <h3 id="researchCount">0</h3>
+                                    <p>Research Papers</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add import button -->
+                        <div class="dashboard-actions" style="margin-top: 30px; text-align: center;">
+                            <button class="btn btn-secondary" onclick="admin.forceImportContent()" style="margin-right: 10px;">
+                                <i class="fas fa-sync-alt"></i> Sync with Main Website
+                            </button>
+                            <button class="btn btn-info" onclick="admin.clearAllData()">
+                                <i class="fas fa-trash-alt"></i> Clear All Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Articles Section -->
+                    <div class="section-content" id="articles-content">
+                        <div class="content-table">
+                            <table id="articlesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Section -->
+                    <div class="section-content" id="gallery-content">
+                        <div class="gallery-grid" id="galleryGrid"></div>
+                    </div>
+
+                    <!-- Research Papers Section -->
+                    <div class="section-content" id="research-content">
+                        <div class="content-table">
+                            <table id="researchTable">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Pages</th>
+                                        <th>Year</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- About Section -->
+                    <div class="section-content" id="about-content">
+                        <div class="about-form">
+                            <form id="aboutForm">
+                                <div class="form-group">
+                                    <label>Profile Image</label>
+                                    <input type="file" id="profileImage" accept="image/*">
+                                    <div class="image-preview" id="profilePreview"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" id="profileName" placeholder="Dr. Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Qualifications</label>
+                                    <textarea id="profileQualifications" rows="4" placeholder="Enter qualifications..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Position</label>
+                                    <textarea id="profilePosition" rows="3" placeholder="Enter position details..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update About Section</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="section-content" id="contact-content">
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" id="contactLocation" placeholder="City, State, Country">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="contactEmail" placeholder="email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="contactPhone" placeholder="+91 9999999999">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Contact Info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Add/Edit -->
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Add New Item</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div id="formFields"></div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
+
+
