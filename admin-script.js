@@ -649,22 +649,22 @@ class AdminPanel {
     }
 
     forceImportContent() {
-        if (confirm('This will sync all content with the main website. Continue?')) {
+        if (confirm('⚠️ WARNING: This will RESET all content to default values and DELETE all your changes!\n\nThis action cannot be undone. Are you sure you want to continue?')) {
             // Clear existing data
             localStorage.removeItem('articles');
             localStorage.removeItem('gallery');
             localStorage.removeItem('research');
             localStorage.removeItem('about');
             localStorage.removeItem('contact');
-            
+
             // Re-initialize data
             this.initializeData();
-            
+
             // Reload all sections
             this.loadDashboard();
             this.loadSectionContent(this.currentSection);
-            
-            alert('Content synced successfully!');
+
+            alert('✅ All content has been reset to default values.');
         }
     }
 

@@ -65,7 +65,7 @@
             <!-- Main Content -->
             <div class="main-content">
                 <div class="content-header">
-                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" style="display: none;">
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                         <i class="fas fa-bars"></i>
                     </button>
                     <h1 id="sectionTitle">Dashboard</h1>
@@ -103,10 +103,10 @@
                         
                         <!-- Add import button -->
                         <div class="dashboard-actions" style="margin-top: 30px; text-align: center;">
-                            <button class="btn btn-secondary" onclick="admin.forceImportContent()" style="margin-right: 10px;">
-                                <i class="fas fa-sync-alt"></i> Sync with Main Website
+                            <button class="btn btn-warning" onclick="admin.forceImportContent()" style="margin-right: 10px;">
+                                <i class="fas fa-undo"></i> Reset to Default Data
                             </button>
-                            <button class="btn btn-info" onclick="admin.clearAllData()">
+                            <button class="btn btn-danger" onclick="admin.clearAllData()">
                                 <i class="fas fa-trash-alt"></i> Clear All Data
                             </button>
                         </div>
